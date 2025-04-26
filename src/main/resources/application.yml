@@ -1,10 +1,16 @@
 spring:
   jpa:
     hibernate:
+      format_sql: true
       ddl-auto: update
+    show-sql: true
   datasource:
     url: jdbc:mysql://localhost:3306/mercadolivro?createDatabaseIfNotExist=true
     username: root
     password: 1234
   jackson:
     default-property-inclusion: non_null
+
+jwt:
+  secret: a4fab96d-8cb5-41e6-9e6e-0a5b37056152
+  expiration: 9999999
