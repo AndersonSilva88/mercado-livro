@@ -4,7 +4,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.mercadolivro.controller.request.LoginRequest
 import com.mercadolivro.exception.AuthenticationException
 import com.mercadolivro.repository.CustomerRepository
-import com.mercadolivro.service.JwtUtil
+import com.mercadolivro.security.JwtUtil
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse

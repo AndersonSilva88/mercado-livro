@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
-import org.springframework.web.client.HttpClientErrorException
 import org.springframework.web.context.request.WebRequest
 
 @ControllerAdvice
@@ -48,5 +47,17 @@ class ControllerAdvice {
 
         )
         return ResponseEntity(erro, HttpStatus.UNPROCESSABLE_ENTITY)
+    }
+
+    @ExceptionHandler(AccessDeniedException::class)
+    fun handleAccessDeniedException(ex: AccessDeniedException, request: WebRequest): ResponseEntity<ErrorResponse> {
+        val erro = ErrorResponse(
+            HttpStatus.FORBIDDEN.value(),
+            Erros.ML000.message,
+            Erros.ML000.code,
+            null
+        )
+
+        return ResponseEntity(erro, HttpStatus.FORBIDDEN)
     }
 }
